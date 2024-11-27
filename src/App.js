@@ -1,10 +1,13 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
 import { IndexPage } from './pages';
+import { NavigationBar } from './shared/NavigationBar/index';
 
 function App() {
   return (
-    IndexPage()
+    <>
+      {/* <IndexPage /> */}
+      <NavigationBar />
+    </>
   );
 }
 
