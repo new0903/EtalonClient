@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
+import { StoreService } from "../../../lib/services/storeService";
 
-export const NavigationBar = ({ storeService = null, extraClasses = [], extraAttrs = [] } = {}) => {
-  
+export const NavigationBar = ({ extraClasses = [], extraAttrs = [] } = {}) => {
   return (
     <div className={"navigationBar " + extraClasses.join(" ")}>
       <img className="navigationBar__logo" src="" alt="Лого" />

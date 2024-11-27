@@ -1,8 +1,9 @@
 import { createStore } from "../../store";
+import { storage } from "../../store";
 
 export class StoreService {
-  constructor(storageName) {
-    this.store = createStore(storageName);
+  constructor() {
+    this.store = storage;
 
     this.actionMap = {
       setActivePanel: (payload) => this.store.getState().setActivePanel(payload),

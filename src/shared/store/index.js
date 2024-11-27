@@ -20,3 +20,6 @@ export const createStore = (storageName) => {
     )
   )
 }
+
+// TODO: стор не переиспользуемый. В перспективе, переделать, чтобы можно было использовать с разными названиями.
+export const storage = createStore("activePanel");
