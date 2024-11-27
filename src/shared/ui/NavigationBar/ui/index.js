@@ -1,5 +1,4 @@
 export const NavigationBar = ({ extraClasses = [], extraAttrs = [] } = {}) => {
-
   return (
     <div className={"navigationBar " + extraClasses.join(" ")}>
       <img className="navigationBar__logo" src="" alt="Лого" />
