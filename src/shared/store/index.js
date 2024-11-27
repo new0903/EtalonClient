@@ -9,7 +9,7 @@ export const createStore = (storageName) => {
     subscribeWithSelector(
       persist(
         (set) => ({
-          activePanel: "",
+          activePanel: null,
           setActivePanel: (panelName) => set({ activePanel: panelName }),
         })
       ),

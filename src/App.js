@@ -1,19 +1,20 @@
 import './App.scss';
-import { IndexPage } from './pages';
-import { StoreService } from './shared/lib/services/storeService';
-import { NavigationBar } from './shared/ui/NavigationBar/index';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { ProductPage, CategoryPage, UserListPage, AuthorizationPage, HomePage } from "./pages/index.js";
 
 function App() {
-  const store = new StoreService("activePanel");
-  
-  store.updateStore("setActivePanel", "category");
-
-  console.debug(store.getActivePanel())
-
   return (
     <>
       {/* <IndexPage /> */}
-      <NavigationBar />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/category" element={<CategoryPage />} /> 
+          <Route path="/product" element={<ProductPage />} />
+          <Route path="/userList" element={<UserListPage />} />
+          <Route path="/authorization" element={<AuthorizationPage />} />
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }

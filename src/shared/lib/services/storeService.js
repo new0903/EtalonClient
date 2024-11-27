@@ -10,7 +10,11 @@ export class StoreService {
   }
 
   getActivePanel() {
-    return this.store.getState().activePavel;
+    return this.store.getState().activePanel;
+  }
+
+  subscribeToActivePanel(callback) {
+    return this.store.subscribe((state) => state.activePanel, callback);
   }
 
   updateStore(action, payload) {
