@@ -1,34 +1,19 @@
-import { useState } from "react";
-
-export const Pagination = (props) => {
-  const { itemInfo, itemsPerPage } = props;
-
-  const [currentPage, setCurrentPage] = useState(1);
-  // Вычисляем общее количество страниц
-  const totalPages = Math.ceil(itemInfo.length / itemsPerPage);
-
-  // Вычисляем индекс первого и последнего продукта для текущей страницы
-  const startIndex = (currentPage - 1) * itemsPerPage;
-  const endIndex = startIndex + itemsPerPage;
-
-  // Фильтруем продукты для текущей страницы
-  const currentProducts = itemInfo.slice(startIndex, endIndex);
-
+export const Pagination = ({ currentPage, totalPages, onPageChange }) => {
   // Функции для перехода между страницами
   const goToNextPage = () => {
-    if (currentPage < totalPages) setCurrentPage(currentPage + 1);
+    if (currentPage < totalPages) onPageChange(currentPage + 1);
   };
 
   const goToPrevPage = () => {
-    if (currentPage > 1) setCurrentPage(currentPage - 1);
+    if (currentPage > 1) onPageChange(currentPage - 1);
   };
 
   const goToPage = (page) => {
-    setCurrentPage(page);
+    onPageChange(page);
   };
 
   return (
-    <div className="productTable__pagination">
+    <div className="tableFactory__pagination">
       <button onClick={goToPrevPage} disabled={currentPage === 1}>
         Назад
       </button>
@@ -48,4 +33,4 @@ export const Pagination = (props) => {
       </button>
     </div>
   );
-}
+};

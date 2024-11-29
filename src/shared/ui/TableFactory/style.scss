@@ -1,0 +1,11 @@
+.tableFactory {
+  width: 150rem;
+
+  &__table {
+    width: 100%;
+
+    tbody {
+      border: 1px dashed black;
+    }
+  }
+}
