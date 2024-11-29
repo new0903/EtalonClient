@@ -10,25 +10,25 @@ export const NavigationBar = ({ extraClasses = [], extraAttrs = [] } = {}) => {
           className="navigationBar__menuList__item" 
           data-js-panelName="category"
         >
-          <Link to="/category">Категории</Link>
+          <a className="navigationBar__menuList__item__link" href="/category">Категории</a>
         </li>
         <li 
           className="navigationBar__menuList__item" 
           data-js-panelName="product"
         >
-          <Link to="/product">Продукты</Link>
+          <a className="navigationBar__menuList__item__link" href="/product">Продукты</a>
         </li>
         <li 
           className="navigationBar__menuList__item"
           data-js-panelName="userList"
         >
-          <Link to="/userList">Пользователи</Link>
+          <a className="navigationBar__menuList__item__link" href="/userList">Пользователи</a>
         </li>
         <li 
           className="navigationBar__menuList__item" 
           data-js-panelName="authorization"
         >
-          <Link to="/authorization">Авторизация</Link>
+          <a className="navigationBar__menuList__item__link" href="/authorization">Авторизация</a>
         </li>
       </ul>
     </div>

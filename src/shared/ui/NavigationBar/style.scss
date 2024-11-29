@@ -22,13 +22,16 @@
     &__item {
       padding: 1.5rem;
       background-color: var(--colorSilver);
-      color: #000;
       border-radius: 2rem;
-
-      text-decoration: none;
       list-style: none;
-      font-size: 2rem;
       transition: all .3s;
+
+      &__link {
+        font-size: 2rem;
+        color: #000;
+        text-decoration: none;
+      }
+
 
       &:hover {
         cursor: pointer;
