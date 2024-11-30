@@ -21,16 +21,16 @@ export const TableFactory = ({ entityInfo, extraClasses = {}, extraAttrs = {} } 
   return (
     <div className="tableFactory">
       <table className="tableFactory__table">
-        <thead>
-          <tr>
+        <thead className="tableFactory__table__header">
+          <tr className="tableFactory__table__header__row">
             {tableNames.map((item) => (
               <th key={item}>{item}</th>
             ))}
           </tr>
         </thead>
-        <tbody>
+        <tbody className="tableFactory__table__body">
           {currentData.map((row, rowIndex) => (
-            <tr key={rowIndex}>
+            <tr className="tableFactory__table__body__row" key={rowIndex}>
               {tableNames.map((header) => (
                 <td key={header}>{row[header]}</td>
               ))}

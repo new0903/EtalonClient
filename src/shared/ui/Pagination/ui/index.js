@@ -14,21 +14,27 @@ export const Pagination = ({ currentPage, totalPages, onPageChange }) => {
 
   return (
     <div className="tableFactory__pagination">
-      <button onClick={goToPrevPage} disabled={currentPage === 1}>
+      <button 
+        className="tableFactory__pagination__toggleButton" 
+        onClick={goToPrevPage} 
+        disabled={currentPage === 1}
+      >
         Назад
       </button>
       {Array.from({ length: totalPages }, (_, index) => (
         <button
+          className="tableFactory__pagination__pageNumber"
           key={index + 1}
           onClick={() => goToPage(index + 1)}
-          style={{
-            backgroundColor: currentPage === index + 1 ? "#ddd" : "#fff",
-          }}
         >
           {index + 1}
         </button>
       ))}
-      <button onClick={goToNextPage} disabled={currentPage === totalPages}>
+      <button 
+        className="tableFactory__pagination__toggleButton" 
+        onClick={goToNextPage} 
+        disabled={currentPage === totalPages}
+      >
         Вперед
       </button>
     </div>

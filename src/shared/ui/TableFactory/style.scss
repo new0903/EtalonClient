@@ -1,11 +1,37 @@
 .tableFactory {
   width: 150rem;
+  height: 100%;
 
   &__table {
-    width: 100%;
+    // width: 100%;
 
-    tbody {
-      border: 1px dashed black;
+    &__header {
+      
+      &__row {
+        display: inline-flex;
+        width: 100%;
+        
+        th {
+          width: 100%;
+          font-size: 2rem;
+        }
+      }
+    }
+
+    &__body {
+      flex-direction: column;
+      
+      &__row {
+        display: inline-flex;
+        width: 100%;
+        margin: 1rem 0;
+        border: 1px solid black;
+        td {
+          font-size: 2rem;
+          margin: 0 20px;
+          width: 100%;
+        }
+      }
     }
   }
 }

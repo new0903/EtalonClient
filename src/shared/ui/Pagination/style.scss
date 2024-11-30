@@ -1,0 +1,37 @@
+.tableFactory__pagination {
+  --tableFactoryPaginationGap: .5rem;
+  --tableFactoryPaginationButtonPadding: 1rem 2rem;
+  --tableFactoryPaginationToggleButtonBorderRadius: 1rem;
+  --tableFactoryPaginationPageNumberBgColor: var(--colorDimGray);
+  display: flex;
+  gap: var(--tableFactoryPaginationGap);
+
+  &__toggleButton {
+    display: flex;
+    padding: var(--tableFactoryPaginationButtonPadding);
+    border: none;
+    border-radius: var(--tableFactoryPaginationToggleButtonBorderRadius);
+
+    &:hover {
+      background-color: var(--colorWhiteSmoke);
+    }
+  }
+
+  &__pageNumber {
+    padding: var(--tableFactoryPaginationButtonPadding);
+    background-color: var(--tableFactoryPaginationPageNumberBgColor);
+    color: var(--colorWhiteSmoke);
+    border: none;
+    border-radius: var(--tableFactoryPaginationToggleButtonBorderRadius);
+
+    &--isActive {
+      background-color: var(--colorSilver);
+      color: var(--colorDimGray);
+    }
+
+    &:hover {
+      background-color: var(--colorSilver);
+      color: var(--colorDimGray);
+    }
+  }
+}
