@@ -1,6 +1,8 @@
 /**
  * поля строго как в БД!
  */
+
+
 export const products = [
   { id: 1, name: "Кофемашина", description: "Автоматическая", price: 34999, category: "Бытовая техника", inStock: 20 },
   { id: 2, name: "Ноутбук", description: "Игровой", price: 89999, category: "Электроника", inStock: 20 },
