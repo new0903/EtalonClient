@@ -9,7 +9,7 @@ export const createProductFx = createEffect(async (formDataProduct) => {
 });
 
 export const getProductFx = createEffect( async () => {
-    const {data} = await api.get('product/');
+    const {data} = await api.get('product/GetProductController/');
     console.log(data)
     return data;
 });

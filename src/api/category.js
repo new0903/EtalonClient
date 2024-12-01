@@ -9,7 +9,7 @@ export const createCategoryFx = createEffect(async (formDataCategory) => {
 });
 
 export const getCategoryFx = createEffect( async () => {
-    const {data} = await api.get('category/');
+    const {data} = await api.get('category/get/');
     console.log(data)
     return data;
 });
