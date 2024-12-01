@@ -8,7 +8,7 @@ export const ProductPage = ({ extraClasses = [], extraAttrs = [] } = {}) => {
       <NavigationBar />
       <h1>Продукты</h1>
       <hr/>
-      <TableFactory entityInfo = {products} />
+      <TableFactory entityInfo = {products} entityType = "product" />
       
     </div> 
   );

@@ -7,7 +7,7 @@ export const CategoryPage = ({ extraClasses = [], extraAttrs = [] } = {}) => {
     <div className="categoryPage">
       <NavigationBar />
       <h1>Категории</h1>
-      <TableFactory entityInfo = {categories} />
+      <TableFactory entityInfo = {categories} entityType = "category" />
     </div> 
   );
 }

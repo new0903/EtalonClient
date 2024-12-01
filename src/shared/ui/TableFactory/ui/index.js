@@ -2,10 +2,14 @@ import { useEffect, useState } from "react";
 import { Pagination } from "../../Pagination";
 import { EditIcon } from "../../Icons/EditIcon";
 import { DeleteIcon } from "../../Icons";
-import { Link } from "react-router-dom";
 
-
-export const TableFactory = ({ entityInfo, extraClasses = {}, extraAttrs = {} } = {}) => {
+/**
+ * 
+ * @param {Object} entityInfo - информация о переданной сущности
+ * @param {String} entityType - тип передаваемой сущности (category, product)
+ * @returns 
+ */
+export const TableFactory = ({ entityInfo, entityType, extraClasses = {}, extraAttrs = {} } = {}) => {
   const [currentPage, setCurrentPage] = useState(1); // Текущая страница
   const itemsPerPage = 5; // Количество элементов на странице
 
@@ -45,34 +49,35 @@ export const TableFactory = ({ entityInfo, extraClasses = {}, extraAttrs = {} } 
           </tr>
         </thead>
         <tbody className="tableFactory__table__body">
-          {currentData.map((row, rowIndex) => (
-            <tr className="tableFactory__table__body__row" data-js-itemId={row.id} key={rowIndex}>
-              {tableNames.map((header) => (
-                <td key={header}>{row[header]}</td>
-              ))}
-              <div className="tableFactory__table__body__row__controls">
-                <div
-                  onClick={(e) => {
-                    handleSetChoosenItemId(e);
-                    
-                  }}
-                  className="tableFactory__table__body__row__controlButton"
-                >
-                  <a href="/editProduct">
-                    {EditIcon({ iconColor: "var(--colorJet)" })}
-                  </a>
+          {currentData.map((row, rowIndex) => {
+            return (
+              <tr className="tableFactory__table__body__row" data-js-itemId={row.id} key={rowIndex}>
+                {tableNames.map((header) => (
+                  <td key={header}>{row[header]}</td>
+                ))}
+                <div className="tableFactory__table__body__row__controls">
+                  <div
+                    onClick={(e) => {
+                      handleSetChoosenItemId(e);
+                    }}
+                    className="tableFactory__table__body__row__controlButton"
+                  >
+                    <a href={"/edit" + entityType}>
+                      {EditIcon({ iconColor: "var(--colorJet)" })}
+                    </a>
+                  </div>
+                  <div 
+                    onClick={(e) => {
+                      handleSetChoosenItemId(e);
+                    }}
+                    className="tableFactory__table__body__row__controlButton"
+                  >
+                    {DeleteIcon({ iconColor: "var(--colorJet)" })}
+                  </div>
                 </div>
-                <div 
-                  onClick={(e) => {
-                    handleSetChoosenItemId(e);
-                  }}
-                  className="tableFactory__table__body__row__controlButton"
-                >
-                  {DeleteIcon({ iconColor: "var(--colorJet)" })}
-                </div>
-              </div>
-            </tr>
-          ))}
+              </tr>
+            )
+          })}
         </tbody>
       </table>
       <Pagination
