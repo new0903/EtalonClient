@@ -16,6 +16,7 @@ function App() {
           <Route path="/product" element={<ProductPage extraClasses={["productPage--active"]} />} />
           <Route path="/userList" element={<UserListPage extraClasses={["userListPage--active"]} />} />
           <Route path="/authorization" element={<AuthorizationPage extraClasses={["authorizationPage--active"]} />} />
+          <Route path="/editItem" element={<AuthorizationPage extraClasses={["authorizationPage--active"]} />} />
         </Routes>
       </BrowserRouter>
     </>

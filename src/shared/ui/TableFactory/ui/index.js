@@ -1,5 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Pagination } from "../../Pagination";
+import { EditIcon } from "../../Icons/EditIcon";
+import { DeleteIcon } from "../../Icons";
 
 export const TableFactory = ({ entityInfo, extraClasses = {}, extraAttrs = {} } = {}) => {
   const [currentPage, setCurrentPage] = useState(1); // Текущая страница
@@ -18,6 +20,18 @@ export const TableFactory = ({ entityInfo, extraClasses = {}, extraAttrs = {} } 
   // Получение заголовков таблицы
   const tableNames = entityInfo.length > 0 ? Object.keys(entityInfo[0]) : [];
 
+  /**
+   * Сохраняем ID выбранного товара
+   */
+  const [choosenItemId, setChoosenItemId] = useState(-1);
+  useEffect(() => {
+    console.debug(choosenItemId);
+  }, [choosenItemId])
+
+  const handleSetChoosenItemId = (e) => {
+    setChoosenItemId(e.currentTarget.closest('tr').getAttribute('data-js-itemId'))
+  }
+
   return (
     <div className="tableFactory">
       <table className="tableFactory__table">
@@ -30,10 +44,29 @@ export const TableFactory = ({ entityInfo, extraClasses = {}, extraAttrs = {} } 
         </thead>
         <tbody className="tableFactory__table__body">
           {currentData.map((row, rowIndex) => (
-            <tr className="tableFactory__table__body__row" key={rowIndex}>
+            <tr className="tableFactory__table__body__row" data-js-itemId={row.id} key={rowIndex}>
               {tableNames.map((header) => (
                 <td key={header}>{row[header]}</td>
               ))}
+              <div className="tableFactory__table__body__row__controls">
+                <div
+                  onClick={(e) => {
+                    handleSetChoosenItemId(e);
+                    
+                  }}
+                  className="tableFactory__table__body__row__controlButton"
+                >
+                  {EditIcon({ iconColor: "var(--colorJet)" })}
+                </div>
+                <div 
+                  onClick={(e) => {
+                    handleSetChoosenItemId(e);
+                  }}
+                  className="tableFactory__table__body__row__controlButton"
+                >
+                  {DeleteIcon({ iconColor: "var(--colorJet)" })}
+                </div>
+              </div>
             </tr>
           ))}
         </tbody>
