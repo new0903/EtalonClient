@@ -8,10 +8,10 @@ export const $userId = createStore('');
 export const filterUsers = createEvent();
 export const setUserId = createEvent();
 
-$books.on(createUserFx.doneData, (users, newProduct) => [...users, newProduct]);
+$users.on(createUserFx.doneData, (users, newProduct) => [...users, newProduct]);
 
-$books.on(getUserFx.doneData, (_, users) => users);
+$users.on(getUserFx.doneData, (_, users) => users);
 
-$books.on(filterUsers, (users, userId) => users.filter((category) => category.id == userId));
+$users.on(filterUsers, (users, userId) => users.filter((category) => category.id == userId));
 
-$bookId.on(setUserId, (_, userId) => userId);
+$userId.on(setUserId, (_, userId) => userId);
