@@ -8,10 +8,10 @@ export const $categoryId = createStore('');
 export const filterCategories = createEvent();
 export const setCategoryId = createEvent();
 
-$books.on(createCategoryFx.doneData, (categories, newCategory) => [...categories, newCategory]);
+$categories.on(createCategoryFx.doneData, (categories, newCategory) => [...categories, newCategory]);
 
-$books.on(getCategoryFx.doneData, (_, categories) => categories);
+$categories.on(getCategoryFx.doneData, (_, categories) => categories);
 
-$books.on(filterCategories, (categories, categoryId) => categories.filter((category) => category.id == categoryId));
+$categories.on(filterCategories, (categories, categoryId) => categories.filter((category) => category.id == categoryId));
 
-$bookId.on(setCategoryId, (_, categoryId) => categoryId);
+$categoryId.on(setCategoryId, (_, categoryId) => categoryId);

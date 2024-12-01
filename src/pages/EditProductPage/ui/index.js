@@ -1,4 +1,8 @@
-export const EditItemPage = () => {
+/**
+ * Универсальная страница для редактирования категорий / продуктов / пользователей
+ * @returns 
+ */
+export const EditProductPage = () => {
   return (
     <div >
       <h1>Редактирование товара</h1>

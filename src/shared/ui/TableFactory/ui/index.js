@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { Pagination } from "../../Pagination";
 import { EditIcon } from "../../Icons/EditIcon";
 import { DeleteIcon } from "../../Icons";
+import { Link } from "react-router-dom";
+
 
 export const TableFactory = ({ entityInfo, extraClasses = {}, extraAttrs = {} } = {}) => {
   const [currentPage, setCurrentPage] = useState(1); // Текущая страница
@@ -56,7 +58,9 @@ export const TableFactory = ({ entityInfo, extraClasses = {}, extraAttrs = {} } 
                   }}
                   className="tableFactory__table__body__row__controlButton"
                 >
-                  {EditIcon({ iconColor: "var(--colorJet)" })}
+                  <a href="/editProduct">
+                    {EditIcon({ iconColor: "var(--colorJet)" })}
+                  </a>
                 </div>
                 <div 
                   onClick={(e) => {
