@@ -9,7 +9,7 @@ export const createUserFx = createEffect(async (formDataUser) => {
 });
 
 export const getUserFx = createEffect( async () => {
-    const {data} = await api.get('user/');
+    const {data} = await api.get('user/users/');
     console.log(data)
     return data;
 });
@@ -22,11 +22,11 @@ export const deleteUserFx = createEffect( async (id) => {
 });
 
 export const getOneUser = async ( userId) => {
-    const {data}  = await api.get('user/' + userId);
+    const {data}  = await api.get('user/users?login=' + userId);
     return data;
 }
 
 export const putOneUser = createEffect( async (formDataUser) => {
-    const { data } = await api.post('user/update', formDataUser);
+    const { data } = await api.put('user/update', formDataUser);
     return data;
 });

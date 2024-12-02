@@ -21,16 +21,15 @@ import React from "react";
 //     email: "test3@test.com",
 //     issueNumber: 1,
 //   };
-  
+
 export const api = axios.create({
     baseURL: 'http://localhost:4000/api/',
     headers: {
-        Authorization:  localStorage.getItem('userToken'),
-            email: localStorage.getItem('userEmail'),
-            login: localStorage.getItem('userLogin'),
-        "Content-Type": "multipart/form-data" ,
-        user:{
-            
+        Authorization: localStorage.getItem('userToken'),
+        email: localStorage.getItem('userEmail'),
+        login: localStorage.getItem('userLogin'),
+        user: {
+
             email: localStorage.getItem('userEmail'),
             login: localStorage.getItem('userLogin'),
         }

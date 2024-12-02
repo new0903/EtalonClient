@@ -10,7 +10,7 @@ export const createProductFx = createEffect(async (formDataProduct) => {
 });
 
 export const getProductFx = createEffect( async () => {
-    const {data} = await api.get('product/GetProductController/');
+    const {data} = await api.get('product/products/');
     console.log(data)
     return data;
 });
@@ -23,11 +23,11 @@ export const deleteProductFx = createEffect( async (id) => {
 });
 
 export const getOneProduct = async ( productId) => {
-    const {data}  = await api.get('product/' + productId);
+    const {data}  = await api.get('product/products?Id=' + productId);
     return data;
 }
 
 export const putOneProduct = createEffect( async (formDataProduct) => {
-    const { data } = await api.post('product/update', formDataProduct);
+    const { data } = await api.put('product/update', formDataProduct);
     return data;
 });

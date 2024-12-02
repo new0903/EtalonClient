@@ -65,7 +65,7 @@ export const TableFactory = ({ entityInfo, entityType, extraClasses = {}, extraA
                     }}
                     className="tableFactory__table__body__row__controlButton"
                   >
-                    <a href={"/edit" + entityType}>
+                    <a href={`/edit${entityType}/${row.id}` }>
                       {EditIcon({ iconColor: "var(--colorJet)" })}
                     </a>
                   </div>

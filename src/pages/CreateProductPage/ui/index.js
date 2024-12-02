@@ -79,6 +79,7 @@ export const CreateProductPage = () => {
           <label for="product-category">Категория:</label>
           <select id="product-category" name="product-category" required onChange={(e) => setCategoryId(e.target.value)}>
 
+          <option value="">Выберете категорию</option>
             {categories.map((el) => (
               <option value={el.name}>{el.name}</option>))}
           </select>

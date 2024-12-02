@@ -10,7 +10,7 @@ export const createCategoryFx = createEffect(async (formDataCategory) => {
 });
 
 export const getCategoryFx = createEffect(async () => {
-    const { data } = await api.get('category/get/');
+    const { data } = await api.get('category/categories/');
     console.log(data)
     return data;
 });
@@ -23,11 +23,11 @@ export const deleteCategoryFx = createEffect(async (id) => {
 });
 
 export const getOneCategory = async (categoryId) => {
-    const { data } = await api.get('category/' + categoryId);
+    const { data } = await api.get('category/categories?Id=' + categoryId);
     return data;
 }
 
 export const putOneCategory = createEffect(async (formDataCategory) => {
-    const { data } = await api.post('category/update', formDataCategory);
+    const { data } = await api.put('category/update', formDataCategory);
     return data;
 });
