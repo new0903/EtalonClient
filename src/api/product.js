@@ -4,7 +4,8 @@ import {api} from './axiosInstance'
 export const createProductFx = createEffect(async (formDataProduct) => {
 
 
-    const { data } = await api.post('product/create', formDataProduct)
+    const { data } = await api.post('product/create', formDataProduct
+    )
     return data;
 });
 

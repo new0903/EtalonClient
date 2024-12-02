@@ -27,7 +27,12 @@ export const api = axios.create({
     headers: {
         Authorization:  localStorage.getItem('userToken'),
             email: localStorage.getItem('userEmail'),
-            login: localStorage.getItem('userLogin')
-        
+            login: localStorage.getItem('userLogin'),
+        "Content-Type": "multipart/form-data" ,
+        user:{
+            
+            email: localStorage.getItem('userEmail'),
+            login: localStorage.getItem('userLogin'),
+        }
     }
 });

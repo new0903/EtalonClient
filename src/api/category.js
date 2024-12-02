@@ -10,19 +10,7 @@ export const createCategoryFx = createEffect(async (formDataCategory) => {
 });
 
 export const getCategoryFx = createEffect(async () => {
-    // var userToken = localStorage.getItem('userToken')
-    // var user = {
-    //     email: localStorage.getItem('userEmail'),
-    //     login: localStorage.getItem('userLogin')
-    // }
-    // console.log(userToken)
-    // console.log(user)
     const { data } = await api.get('category/get/');
-
-    // headers: {
-    //     Authorization: userToken,
-    //     user: user
-    // }
     console.log(data)
     return data;
 });

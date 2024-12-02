@@ -1,8 +1,7 @@
 import { NavigationBar } from "../../../shared/ui/NavigationBar/index";
 import React from "react";
 import axios from "axios";
-//import {$user,$userToken,setToken,setUserEmail,setUserLogin} from "../../../shared/store/authorize";
-//import { useUnit } from 'effector-react';
+
 
 export const AuthorizationPage = ({ extraClasses = [], extraAttrs = [] } = {}) => {
 
@@ -40,14 +39,14 @@ export const AuthorizationPage = ({ extraClasses = [], extraAttrs = [] } = {}) =
       <h1>Авторизация</h1>
       <div >
         <form id="login-form">
-          <label for="product-name">Название товара:</label>
-          <input type="text" name="email" required onChange={(e)=>setEmail(e.target.value)} />
+          <label for="product-name">Почта:</label>
+          <input type="email" name="email" required onChange={(e)=>setEmail(e.target.value)} />
 
-          <label for="product-description">Описание:</label>
+          <label for="product-description">Логин:</label>
           <input type="text" name="login" required  onChange={(e)=>setLogin(e.target.value)}/>
 
-          <label for="product-price">Цена (руб):</label>
-          <input type="text" name="password" required  onChange={(e)=>setPassword(e.target.value)}/>
+          <label for="product-price">Пароль:</label>
+          <input type="password" name="password" required  onChange={(e)=>setPassword(e.target.value)}/>
 
           <button type="button" onClick={()=>{LoginUserForm()}}>Войти</button>
         </form>

@@ -40,6 +40,9 @@ export const TableFactory = ({ entityInfo, entityType, extraClasses = {}, extraA
 
   return (
     <div className="tableFactory">
+      <a href={"/create" + entityType}>
+        Добавить
+      </a>
       <table className="tableFactory__table">
         <thead className="tableFactory__table__header">
           <tr className="tableFactory__table__header__row">
