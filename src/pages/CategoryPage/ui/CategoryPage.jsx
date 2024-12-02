@@ -1,9 +1,9 @@
 import { NavigationBar } from "../../../shared/ui/NavigationBar/index";
 import { TableFactory } from "../../../shared/ui/TableFactory";
-import { categories } from "../../../shared/config/data";
+//import { categories } from "../../../shared/config/data";
 import {$categories} from "../../../shared/store/category";
 import { useUnit } from 'effector-react';
-import {getCategoryFx} from "../../../api/category"
+import {getCategoryFx} from "../../../api/category";
 import React from "react";
 
 export const CategoryPage = ({ extraClasses = [], extraAttrs = [] } = {}) => {
