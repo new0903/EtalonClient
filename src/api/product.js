@@ -18,7 +18,9 @@ export const getProductFx = createEffect( async () => {
 
 
 export const deleteProductFx = createEffect( async (id) => {
-    const { data } = await api.get('product/delete' + id);
+    const { data } = await api.delete('product/delete/' + id);
+    console.log(id)
+    console.log(data)
     return data;
 });
 

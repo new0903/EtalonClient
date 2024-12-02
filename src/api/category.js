@@ -18,7 +18,9 @@ export const getCategoryFx = createEffect(async () => {
 
 
 export const deleteCategoryFx = createEffect(async (id) => {
-    const { data } = await api.get('category/delete/' + id);
+    const { data } = await api.delete('category/delete/' + id);
+    console.log(id)
+    console.log(data)
     return data;
 });
 

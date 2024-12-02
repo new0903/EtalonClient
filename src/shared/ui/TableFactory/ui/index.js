@@ -9,7 +9,7 @@ import { DeleteIcon } from "../../Icons";
  * @param {String} entityType - тип передаваемой сущности (category, product)
  * @returns 
  */
-export const TableFactory = ({ entityInfo, entityType, extraClasses = {}, extraAttrs = {} } = {}) => {
+export const TableFactory = ({ entityInfo, entityType, entityDeleteMethod, extraClasses = {}, extraAttrs = {} } = {}) => {
   const [currentPage, setCurrentPage] = useState(1); // Текущая страница
   const itemsPerPage = 5; // Количество элементов на странице
 
@@ -72,6 +72,8 @@ export const TableFactory = ({ entityInfo, entityType, extraClasses = {}, extraA
                   <div 
                     onClick={(e) => {
                       handleSetChoosenItemId(e);
+                      //handleSetChoosenItemId(e);
+                      entityDeleteMethod(row.id)
                     }}
                     className="tableFactory__table__body__row__controlButton"
                   >

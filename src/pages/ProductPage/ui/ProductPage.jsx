@@ -3,7 +3,7 @@ import { categories, products } from "../../../shared/config/data.js";
 import { TableFactory } from "../../../shared/ui/TableFactory/index.js";
 import {$products} from "../../../shared/store/product.js";
 import { useUnit } from 'effector-react';
-import {getProductFx} from "../../../api/product.js"
+import {getProductFx,deleteProductFx} from "../../../api/product.js"
 import React from "react";
 
 export const ProductPage = ({ extraClasses = [], extraAttrs = [] } = {}) => {
@@ -11,6 +11,9 @@ export const ProductPage = ({ extraClasses = [], extraAttrs = [] } = {}) => {
   
   const [products] = useUnit([$products]);
 
+  const deleteProduct = async (id) => {
+    await deleteProductFx(id);
+  }
   const getCategories = async () => {
     await getProductFx();
   }
@@ -23,7 +26,7 @@ export const ProductPage = ({ extraClasses = [], extraAttrs = [] } = {}) => {
       <NavigationBar />
       <h1>Продукты</h1>
       <hr/>
-      {products.length>0 ? (<TableFactory entityInfo = {products} entityType = "product" />) :
+      {products.length>0 ? (<TableFactory entityInfo = {products} entityDeleteMethod={deleteProduct} entityType = "product" />) :
       <h1>Нет продуктов</h1> }
       
       

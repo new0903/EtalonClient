@@ -17,7 +17,9 @@ export const getUserFx = createEffect( async () => {
 
 
 export const deleteUserFx = createEffect( async (id) => {
-    const { data } = await api.get('user/delete' + id);
+    const { data } = await api.delete('user/delete/' + id);
+    console.log(id)
+    console.log(data)
     return data;
 });
 
