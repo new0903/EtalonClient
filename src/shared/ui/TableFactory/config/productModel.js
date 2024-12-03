@@ -1,0 +1,1 @@
+export const productModel = ["title", "article", "properties", "priceDef", "priceNDS", "inStock"];

@@ -9,7 +9,6 @@ export const CreateCategoryPage = () => {
 
 
   const SaveCategoryForm = async () => {
-    console.debug("вход")
 
     const res=await createCategoryFx({nameCategory:nameCategory})
     console.log(res)

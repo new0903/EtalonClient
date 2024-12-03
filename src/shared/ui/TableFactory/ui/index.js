@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Pagination } from "../../Pagination";
 import { EditIcon } from "../../Icons/EditIcon";
 import { DeleteIcon } from "../../Icons";
+import { productModel, categoryModel, userModel } from "../config/index";
 
 /**
  * 
@@ -33,6 +34,29 @@ export const TableFactory = ({ entityInfo, entityType, entityDeleteMethod, extra
     tableNames = tableNames.filter((item) => 
       namesNeeded.includes(item)
     );
+
+  switch(entityType) {
+    case "user": 
+      tableNames = tableNames.filter((item) => 
+        userModel.includes(item)
+      );
+      break;
+    
+    case "product": 
+      tableNames = tableNames.filter((item) => 
+        productModel.includes(item)
+      );
+      break;
+    
+    case "category":
+      tableNames = tableNames.filter((item) => 
+        categoryModel.includes(item)
+      );
+      break;
+      
+    default:
+      break;
+  }
 
   /**
    * Сохраняем ID выбранного товара
