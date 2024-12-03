@@ -2,6 +2,8 @@ import { NavigationBar } from "../../../shared/ui/NavigationBar/index";
 import React from "react";
 import axios from "axios";
 
+import { useNavigate } from "react-router-dom";
+
 export const RegisterUserPage = () => {
  // const [user,userToken]=useUnit([$user,$userToken]);
  const [email, setEmail] = React.useState(null);
@@ -9,6 +11,7 @@ export const RegisterUserPage = () => {
  const [password, setPassword] = React.useState(null);
  const [passwordConfirm, setConfPassword] = React.useState(null);
 
+ let navigate = useNavigate();
   const RegisterUserForm = async () => {
 
     if (password !== passwordConfirm) {
@@ -38,6 +41,7 @@ export const RegisterUserPage = () => {
       localStorage.setItem('userToken', resLogin.data.acessToken );
       localStorage.setItem('userEmail', email );
       localStorage.setItem('userLogin', login );
+      return navigate("/product"); 
     } catch (e) {
       console.error(e);
     }

@@ -3,7 +3,7 @@
 import { NavigationBar } from "../../../shared/ui/NavigationBar/index";
 import React from "react";
 import axios from "axios";
-
+import { useNavigate } from "react-router-dom";
 
 export const AuthorizationPage = ({ extraClasses = [], extraAttrs = [] } = {}) => {
 
@@ -12,7 +12,7 @@ export const AuthorizationPage = ({ extraClasses = [], extraAttrs = [] } = {}) =
   const [login, setLogin] = React.useState(null);
   const [password, setPassword] = React.useState(null);
   const [status, setStatus] = React.useState("");
-
+  let navigate = useNavigate();
   const LoginUserForm = async () => {
     try {
       const res = await axios.post("http://localhost:4000/api/auth/login",
@@ -31,6 +31,7 @@ export const AuthorizationPage = ({ extraClasses = [], extraAttrs = [] } = {}) =
       localStorage.setItem('userToken', res.data.acessToken );
       localStorage.setItem('userEmail', email );
       localStorage.setItem('userLogin', login );
+      return navigate("/product"); 
     } catch(e) {
       console.error("Произошла ошибка при авторизации", e)
     }
@@ -51,13 +52,13 @@ export const AuthorizationPage = ({ extraClasses = [], extraAttrs = [] } = {}) =
         <input className="authorizationPage__form__input" placeholder="Пароль" type="password" name="password" required  onChange={(e)=>setPassword(e.target.value)}/>
 
         <div className="authorizationPage__form__controls">
-          <a 
-            href={status === 201 && "/category"}
+          <button 
+          type="button"
             className="authorizationPage__form__controls__subBtn" 
             onClick={()=>{LoginUserForm()}}
           >
             Войти
-          </a>
+          </button>
           <a 
             className="authorizationPage__form__controls__subBtn" 
             href="/registration" 
