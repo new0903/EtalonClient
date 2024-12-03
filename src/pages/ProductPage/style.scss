@@ -1,0 +1,30 @@
+.productPage {
+  display: flex;
+  flex-direction: column;
+
+  &__subheader {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    margin: 0 10rem;
+  }
+
+  &__createProductBtn {
+    width: auto;
+    padding: 1rem 2rem;
+    font-size: 2rem;
+    text-decoration: none;
+    background-color: var(--colorJet);
+    border-radius: 2rem;
+    margin: 1rem 2rem;
+    color: #fff;
+    transition: all 0.3s;
+
+    &:hover {
+      background-color: var(--colorSilver);
+      color: var(--colorJet);
+      transition: all 0.3s;
+    }
+  }
+}

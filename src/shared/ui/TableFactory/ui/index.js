@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Pagination } from "../../Pagination";
 import { EditIcon } from "../../Icons/EditIcon";
 import { DeleteIcon } from "../../Icons";
+import { productModel, categoryModel, userModel } from "../config/index";
 
 /**
  * 
@@ -23,8 +24,39 @@ export const TableFactory = ({ entityInfo, entityType, entityDeleteMethod, extra
   // Фильтруем данные для текущей страницы
   const currentData = entityInfo.slice(startIndex, endIndex);
 
+  const namesNeeded = ["email", "login", "password"];
+
   // Получение заголовков таблицы
-  const tableNames = entityInfo.length > 0 ? Object.keys(entityInfo[0]) : [];
+  var tableNames = entityInfo.length > 0 ? Object.keys(entityInfo[0]) : [];
+
+  // Эксклюзвно для User. Получаем только поля email, login, password.
+  if (entityType === "user")
+    tableNames = tableNames.filter((item) => 
+      namesNeeded.includes(item)
+    );
+
+  switch(entityType) {
+    case "user": 
+      tableNames = tableNames.filter((item) => 
+        userModel.includes(item)
+      );
+      break;
+    
+    case "product": 
+      tableNames = tableNames.filter((item) => 
+        productModel.includes(item)
+      );
+      break;
+    
+    case "category":
+      tableNames = tableNames.filter((item) => 
+        categoryModel.includes(item)
+      );
+      break;
+      
+    default:
+      break;
+  }
 
   /**
    * Сохраняем ID выбранного товара
@@ -40,9 +72,6 @@ export const TableFactory = ({ entityInfo, entityType, entityDeleteMethod, extra
 
   return (
     <div className="tableFactory">
-      <a href={"/create" + entityType}>
-        Добавить
-      </a>
       <table className="tableFactory__table">
         <thead className="tableFactory__table__header">
           <tr className="tableFactory__table__header__row">

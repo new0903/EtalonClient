@@ -24,8 +24,12 @@ export const CategoryPage = ({ extraClasses = [], extraAttrs = [] } = {}) => {
   return (
     <div className="categoryPage">
       <NavigationBar />
-      <h1>Категории</h1>
-      {categories.length>0 ? (<TableFactory entityInfo = {categories} entityDeleteMethod={deleteCategory}  entityType = "category" />) :
+      <div className="categoryPage__subheader">
+        <h1>Категории</h1>
+        <a className="categoryPage__createCategoryBtn" href="/createCategory">Добавить категорию</a>
+      </div>
+      <hr />
+      {categories.length>0 ? (<TableFactory entityInfo = {categories} entityType = "category" />) :
       <h1>Нет категорий</h1> }
       
     </div> 
