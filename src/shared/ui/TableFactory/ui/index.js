@@ -13,7 +13,7 @@ import { productModel, categoryModel, userModel } from "../config/index";
 export const TableFactory = ({ entityInfo, entityType, entityDeleteMethod, extraClasses = {}, extraAttrs = {} } = {}) => {
   const [currentPage, setCurrentPage] = useState(1); // Текущая страница
   const itemsPerPage = 5; // Количество элементов на странице
-
+  console.debug(entityInfo)
   // Вычисляем общее количество страниц
   const totalPages = Math.ceil(entityInfo.length / itemsPerPage);
 
@@ -28,12 +28,6 @@ export const TableFactory = ({ entityInfo, entityType, entityDeleteMethod, extra
 
   // Получение заголовков таблицы
   var tableNames = entityInfo.length > 0 ? Object.keys(entityInfo[0]) : [];
-
-  // Эксклюзвно для User. Получаем только поля email, login, password.
-  if (entityType === "user")
-    tableNames = tableNames.filter((item) => 
-      namesNeeded.includes(item)
-    );
 
   switch(entityType) {
     case "user": 

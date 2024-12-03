@@ -14,18 +14,17 @@ export const UserListPage = ({ extraClasses = [], extraAttrs = [] } = {}) => {
   const deleteUser = async (id) => {
     await deleteUserFx(id);
   }
-  const getCategories = async () => {
+  const getUsers = async () => {
     await getUserFx();
   }
   React.useEffect(() => {
-
-    getCategories()
+    getUsers()
   }, []);
   return (
     <div className="userListPage">
       <NavigationBar />
       <h1>Пользователи</h1>  
-      {users.length>0 ? (<TableFactory entityInfo = {users} entityDeleteMethod={deleteUser} entityType = "product" />) :
+      {users.length>0 ? (<TableFactory entityInfo = {users} entityDeleteMethod={deleteUser} entityType = "user" />) :
       <h1>Нет продуктов</h1> }
       
     </div> 

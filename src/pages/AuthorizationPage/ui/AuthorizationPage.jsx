@@ -10,12 +10,7 @@ export const AuthorizationPage = ({ extraClasses = [], extraAttrs = [] } = {}) =
   const [login, setLogin] = React.useState(null);
   const [password, setPassword] = React.useState(null);
 
-
-  
-
   const LoginUserForm = async () => {
-
-
     const res=await axios.post("http://localhost:4000/api/auth/login",
       {
         email:email,
@@ -32,25 +27,22 @@ export const AuthorizationPage = ({ extraClasses = [], extraAttrs = [] } = {}) =
      localStorage.setItem('userLogin', login );
   };
 
-
   return (
     <div className="authorizationPage">
       <NavigationBar />
-      <h1>Авторизация</h1>
-      <div >
-        <form id="login-form">
-          <label for="product-name">Почта:</label>
-          <input type="email" name="email" required onChange={(e)=>setEmail(e.target.value)} />
+      <h1 className="authorizationPage__title">Авторизация</h1>
+      <form className="authorizationPage__form" id="login-form">
+        <label className="authorizationPage__form__label" for="product-name">Почта</label>
+        <input className="authorizationPage__form__input" placeholder="Email" type="email" name="email" required onChange={(e)=>setEmail(e.target.value)} />
 
-          <label for="product-description">Логин:</label>
-          <input type="text" name="login" required  onChange={(e)=>setLogin(e.target.value)}/>
+        <label className="authorizationPage__form__label" for="product-description">Логин</label>
+        <input className="authorizationPage__form__input" placeholder="Логин" type="text" name="login" required  onChange={(e)=>setLogin(e.target.value)}/>
 
-          <label for="product-price">Пароль:</label>
-          <input type="password" name="password" required  onChange={(e)=>setPassword(e.target.value)}/>
+        <label className="authorizationPage__form__label" for="product-price">Пароль</label>
+        <input className="authorizationPage__form__input" placeholder="Пароль" type="password" name="password" required  onChange={(e)=>setPassword(e.target.value)}/>
 
-          <button type="button" onClick={()=>{LoginUserForm()}}>Войти</button>
-        </form>
-      </div>
+        <button className="authorizationPage__form__subBtn" type="button" onClick={()=>{LoginUserForm()}}>Войти</button>
+      </form>
     </div>
   );
 }

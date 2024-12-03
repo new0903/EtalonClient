@@ -93,7 +93,7 @@ export const CreateProductPage = () => {
             console.log(image_as_files)
             
             }} />
-          <button type="button" onClick={() => { SaveProductForm() }}>Войти</button>
+          <button type="button" onClick={() => { SaveProductForm() }}>Добавить</button>
         </form>
       </div>
     </div>
