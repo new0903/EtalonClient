@@ -28,10 +28,5 @@ export const api = axios.create({
         Authorization: localStorage.getItem('userToken'),
         email: localStorage.getItem('userEmail'),
         login: localStorage.getItem('userLogin'),
-        user: {
-
-            email: localStorage.getItem('userEmail'),
-            login: localStorage.getItem('userLogin'),
-        }
     }
 });

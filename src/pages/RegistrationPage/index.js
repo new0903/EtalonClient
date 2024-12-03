@@ -1,1 +1,1 @@
-export { CreateProductPage } from "./ui/index.js";
+export { RegisterUserPage } from "./ui/index.js";
