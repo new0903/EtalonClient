@@ -3,7 +3,7 @@ import { TableFactory } from "../../../shared/ui/TableFactory";
 //import { categories } from "../../../shared/config/data";
 import {$categories} from "../../../shared/store/category";
 import { useUnit } from 'effector-react';
-import {getCategoryFx} from "../../../api/category";
+import {getCategoryFx,deleteCategoryFx} from "../../../api/category";
 import React from "react";
 
 export const CategoryPage = ({ extraClasses = [], extraAttrs = [] } = {}) => {
@@ -11,6 +11,9 @@ export const CategoryPage = ({ extraClasses = [], extraAttrs = [] } = {}) => {
 
   const [categories] = useUnit([$categories]);
 
+  const deleteCategory = async (id) => {
+    await deleteCategoryFx(id);
+  }
   const getCategories = async () => {
     await getCategoryFx();
   }
