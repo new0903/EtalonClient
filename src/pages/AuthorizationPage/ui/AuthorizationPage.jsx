@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable react/jsx-no-comment-textnodes */
 import { NavigationBar } from "../../../shared/ui/NavigationBar/index";
 import React from "react";
 import axios from "axios";
@@ -9,29 +11,36 @@ export const AuthorizationPage = ({ extraClasses = [], extraAttrs = [] } = {}) =
   const [email, setEmail] = React.useState(null);
   const [login, setLogin] = React.useState(null);
   const [password, setPassword] = React.useState(null);
+  const [status, setStatus] = React.useState("");
 
   const LoginUserForm = async () => {
-    const res=await axios.post("http://localhost:4000/api/auth/login",
-      {
-        email:email,
-        login:login,
-        password: password
-      }
-    )
+    try {
+      const res = await axios.post("http://localhost:4000/api/auth/login",
+        {
+          email:email,
+          login:login,
+          password: password
+        }
+      );
 
-    console.log(res);
-    console.log(res.data);
-    //пока так
-     localStorage.setItem('userToken', res.data.acessToken );
-     localStorage.setItem('userEmail', email );
-     localStorage.setItem('userLogin', login );
+      setStatus(res.status);
+  
+      console.log(res);
+      console.log(res.data);
+      //пока так
+      localStorage.setItem('userToken', res.data.acessToken );
+      localStorage.setItem('userEmail', email );
+      localStorage.setItem('userLogin', login );
+    } catch(e) {
+      console.error("Произошла ошибка при авторизации", e)
+    }
+    
   };
 
   return (
     <div className="authorizationPage">
-      <NavigationBar />
-      <h1 className="authorizationPage__title">Авторизация</h1>
       <form className="authorizationPage__form" id="login-form">
+        <h1 className="authorizationPage__form__title">Авторизация</h1>
         <label className="authorizationPage__form__label" for="product-name">Почта</label>
         <input className="authorizationPage__form__input" placeholder="Email" type="email" name="email" required onChange={(e)=>setEmail(e.target.value)} />
 
@@ -41,7 +50,23 @@ export const AuthorizationPage = ({ extraClasses = [], extraAttrs = [] } = {}) =
         <label className="authorizationPage__form__label" for="product-price">Пароль</label>
         <input className="authorizationPage__form__input" placeholder="Пароль" type="password" name="password" required  onChange={(e)=>setPassword(e.target.value)}/>
 
-        <button className="authorizationPage__form__subBtn" type="button" onClick={()=>{LoginUserForm()}}>Войти</button>
+        <div className="authorizationPage__form__controls">
+          <a 
+            href={status === 201 && "/category"}
+            className="authorizationPage__form__controls__subBtn" 
+            onClick={()=>{LoginUserForm()}}
+          >
+            Войти
+          </a>
+          <a 
+            className="authorizationPage__form__controls__subBtn" 
+            href="/registration" 
+            type="button"
+          >
+            Зарегистрироваться
+          </a>
+        </div>
+        
       </form>
     </div>
   );

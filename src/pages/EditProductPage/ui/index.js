@@ -82,51 +82,48 @@ export const EditProductPage = () => {
   }, []);
 
   return (
-    <div >
+    <div className="editProductPage">
       <NavigationBar />
-      <h1>Редактирование товара</h1>
-      <div >
-        <form id="login-form">
-          <label for="product-title">Описание:</label>
-          <input type="text" value={title} name="title" required onChange={(e) => setTitle(e.target.value)} />
+      <form className="editProductPage__form" id="login-form">
+        <h1 className="editProductPage__form__title">Редактирование товара</h1>
+        <label className="editProductPage__form__label" for="product-title">Описание:</label>
+        <input className="editProductPage__form__input" type="text" value={title} name="title" required onChange={(e) => setTitle(e.target.value)} />
 
-          <label for="product-article">Артикл:</label>
-          <input type="text" value={article} name="article" required onChange={(e) => setArticle(e.target.value)} />
-          <label for="product-priceDef">Цена без НДС:</label>
-          <input type="number" value={priceDef} name="priceDef" required onChange={(e) => setPriceDef(e.target.value)} />
-          <label for="product-priceNDS">Цена с НДС:</label>
-          <input type="number" value={priceNDS} name="priceNDS" required onChange={(e) => setPriceNDS(e.target.value)} />
-          <label for="product-inStock">количество на складе:</label>
-          <input type="number" value={inStock} name="inStock" required onChange={(e) => setInStock(e.target.value)} />
-          <label for="product-maxSize">макисмальный размер:</label>
-          <input type="number" value={maxSize} name="maxSize" required onChange={(e) => setMaxSize(e.target.value)} />
-          <label for="product-minSize">минимальный размер:</label>
-          <input type="number" value={minSize} name="minSize" required onChange={(e) => setMinSize(e.target.value)} />
+        <label className="editProductPage__form__label" for="product-article">Артикл:</label>
+        <input className="editProductPage__form__input" type="text" value={article} name="article" required onChange={(e) => setArticle(e.target.value)} />
+        <label className="editProductPage__form__label" for="product-priceDef">Цена без НДС:</label>
+        <input className="editProductPage__form__input" type="number" value={priceDef} name="priceDef" required onChange={(e) => setPriceDef(e.target.value)} />
+        <label className="editProductPage__form__label" for="product-priceNDS">Цена с НДС:</label>
+        <input className="editProductPage__form__input" type="number" value={priceNDS} name="priceNDS" required onChange={(e) => setPriceNDS(e.target.value)} />
+        <label className="editProductPage__form__label" for="product-inStock">количество на складе:</label>
+        <input className="editProductPage__form__input" type="number" value={inStock} name="inStock" required onChange={(e) => setInStock(e.target.value)} />
+        <label className="editProductPage__form__label" for="product-maxSize">макисмальный размер:</label>
+        <input className="editProductPage__form__input" type="number" value={maxSize} name="maxSize" required onChange={(e) => setMaxSize(e.target.value)} />
+        <label className="editProductPage__form__label" for="product-minSize">минимальный размер:</label>
+        <input className="editProductPage__form__input" type="number" value={minSize} name="minSize" required onChange={(e) => setMinSize(e.target.value)} />
 
-          <label for="product-properties">Состав:</label>
-          <input type="text" value={properties} name="properties" required onChange={(e) => setProperties(e.target.value)} />
+        <label className="editProductPage__form__label" for="product-properties">Состав:</label>
+        <input className="editProductPage__form__input" type="text" value={properties} name="properties" required onChange={(e) => setProperties(e.target.value)} />
 
-          <label for="product-category">Категория:</label>
-          <select id="product-category" name="product-category" required onChange={(e) => setCategoryId(e.target.value)}>
-            <option value="">Выберете категорию</option>
-            {
-            categories.map((el) => el.id == CategoryId ?(<option selected value={el.name}>{el.name}</option>):(<option value={el.name}>{el.name}</option>))
-              
-            }
-          </select>
-
-          <input type="file" name="files" onChange={(e) => {
-            let image_as_files = e.target.files[0];
-
-            // let image_as_base64 = URL.createObjectURL(e.target.files)
-            setFiles(image_as_files)
-            //  setCounterFiles(image_as_files.length)
-            console.log(image_as_files)
+        <label className="editProductPage__form__label" for="product-category">Категория:</label>
+        <select id="product-category" name="product-category" required onChange={(e) => setCategoryId(e.target.value)}>
+          <option value="">Выберете категорию</option>
+          {
+          categories.map((el) => el.id === CategoryId ?(<option selected value={el.name}>{el.name}</option>):(<option value={el.name}>{el.name}</option>))
             
-            }} />
-          <button type="button" onClick={() => { SaveProductForm() }}>Войти</button>
-        </form>
-      </div>
+          }
+        </select>
+
+        <input className="editProductPage__form__input" type="file" name="files" onChange={(e) => {
+          let image_as_files = e.target.files[0];
+
+          // let image_as_base64 = URL.createObjectURL(e.target.files)
+          setFiles(image_as_files)
+          //  setCounterFiles(image_as_files.length)
+          console.log(image_as_files)
+          }} />
+        <button className="editProductPage__form__subBtn" type="button" onClick={() => { SaveProductForm() }}>Войти</button>
+      </form>
     </div>
   );
 }

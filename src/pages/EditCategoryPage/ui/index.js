@@ -24,29 +24,21 @@ export const EditCategoryPage = () => {
     var res=await getOneCategory(id);
     console.log(res)
     setNameCategory(res.name)
-
-
-
-
   }
 
   React.useEffect(() => {
-
     getCategory()
   }, []);
 
   return (
     <div className="editCategoryPage">
       <NavigationBar />
-      <h1>Редактирование категории</h1>
-
-      <div >
-        <form id="login-form">
-          <label for="product-name">Название категории:</label>
-          <input type="text" value={nameCategory} name="nameCategory" required onChange={(e)=>setNameCategory(e.target.value)} />
-          <button type="button" onClick={()=>{SaveCategoryForm()}}>Войти</button>
-        </form>
-      </div>
+      <form className="editCategoryPage__form" id="login-form">
+        <h1 className="editCategoryPage__form__title">Редактирование категории</h1>
+        <label className="editCategoryPage__form__label" for="product-name">Название категории:</label>
+        <input className="editCategoryPage__form__input" type="text" value={nameCategory} name="nameCategory" required onChange={(e)=>setNameCategory(e.target.value)} />
+        <button className="editCategoryPage__form__subBtn" type="button" onClick={()=>{SaveCategoryForm()}}>Применить</button>
+      </form>
     </div>
   );
 };

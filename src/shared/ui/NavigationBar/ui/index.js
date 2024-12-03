@@ -26,18 +26,6 @@ export const NavigationBar = ({ extraClasses = [], extraAttrs = [] } = {}) => {
         >
           <a className="navigationBar__menuList__item__link" href="/userList">Пользователи</a>
         </li>
-        <li 
-          className="navigationBar__menuList__item" 
-          data-js-panelName="authorization"
-        >
-          <a className="navigationBar__menuList__item__link" href="/authorization">Авторизация</a>
-        </li>
-        <li 
-          className="navigationBar__menuList__item" 
-          data-js-panelName="authorization"
-        >
-          <a className="navigationBar__menuList__item__link" href="/registration">Регистрация</a>
-        </li>
       </ul>
     </div>
   );
