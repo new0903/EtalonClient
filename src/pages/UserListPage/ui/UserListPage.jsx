@@ -4,7 +4,9 @@ export const UserListPage = ({ extraClasses = [], extraAttrs = [] } = {}) => {
   return (
     <div className="userListPage">
       <NavigationBar />
-      <h1>Пользователи</h1>
+      <div className="userListPage__subheader">
+        <h1>Пользователи</h1>
+      </div>
     </div> 
   );
 }

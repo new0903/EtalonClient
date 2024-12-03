@@ -9,7 +9,7 @@ export const CreateCategoryPage = () => {
 
 
   const SaveCategoryForm = async () => {
-
+    console.debug("вход")
 
     const res=await createCategoryFx({nameCategory:nameCategory})
     console.log(res)
@@ -19,11 +19,11 @@ export const CreateCategoryPage = () => {
   return (
     <div className="editCategoryPage">
       <NavigationBar />
-      <h1>Редактирование категории</h1>
+      <h1>Создание категории</h1>
 
       <div >
         <form id="login-form">
-          <label for="product-name">Название товара:</label>
+          <label for="product-name">Название категории:</label>
           <input type="text" name="nameCategory" required onChange={(e)=>setNameCategory(e.target.value)} />
           <button type="button" onClick={()=>{SaveCategoryForm()}}>Войти</button>
         </form>

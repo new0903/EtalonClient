@@ -42,7 +42,7 @@ export const EditCategoryPage = () => {
 
       <div >
         <form id="login-form">
-          <label for="product-name">Название товара:</label>
+          <label for="product-name">Название категории:</label>
           <input type="text" value={nameCategory} name="nameCategory" required onChange={(e)=>setNameCategory(e.target.value)} />
           <button type="button" onClick={()=>{SaveCategoryForm()}}>Войти</button>
         </form>
