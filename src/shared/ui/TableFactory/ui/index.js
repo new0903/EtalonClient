@@ -23,8 +23,16 @@ export const TableFactory = ({ entityInfo, entityType, entityDeleteMethod, extra
   // Фильтруем данные для текущей страницы
   const currentData = entityInfo.slice(startIndex, endIndex);
 
+  const namesNeeded = ["email", "login", "password"];
+
   // Получение заголовков таблицы
-  const tableNames = entityInfo.length > 0 ? Object.keys(entityInfo[0]) : [];
+  var tableNames = entityInfo.length > 0 ? Object.keys(entityInfo[0]) : [];
+
+  // Эксклюзвно для User. Получаем только поля email, login, password.
+  if (entityType === "user")
+    tableNames = tableNames.filter((item) => 
+      namesNeeded.includes(item)
+    );
 
   /**
    * Сохраняем ID выбранного товара
@@ -40,9 +48,6 @@ export const TableFactory = ({ entityInfo, entityType, entityDeleteMethod, extra
 
   return (
     <div className="tableFactory">
-      <a href={"/create" + entityType}>
-        Добавить
-      </a>
       <table className="tableFactory__table">
         <thead className="tableFactory__table__header">
           <tr className="tableFactory__table__header__row">

@@ -16,7 +16,7 @@ export const RegisterUserPage = () => {
 
       <div >
         
-        <form method='Post' action='http://localhost:3000/api/auth/reg/' >
+        <form method='Post' action='http://localhost:4000/api/auth/reg/' >
             <input type="text" name="email" />
             <input type="text" name="login" />
             <input type="text" name="password" />
