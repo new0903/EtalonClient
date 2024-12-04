@@ -1,7 +1,6 @@
 import './App.scss';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ProductPage, CategoryPage, UserListPage, AuthorizationPage, HomePage } from "./pages/index.js";
-import { StoreService } from './shared/lib/services/storeService.js';
 import { EditProductPage } from './pages/EditProductPage/ui/index.js';
 import { EditCategoryPage } from './pages/EditCategoryPage/index.js';
 //import { CreateCategoryPage } from './pages/CreateCategoryPage/index.js';
