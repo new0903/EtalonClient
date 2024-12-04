@@ -13,7 +13,7 @@ import { productModel, categoryModel, userModel } from "../config/index";
 export const TableFactory = ({ entityInfo, entityType, entityDeleteMethod, extraClasses = {}, extraAttrs = {} } = {}) => {
   const [currentPage, setCurrentPage] = useState(1); // Текущая страница
   const itemsPerPage = 5; // Количество элементов на странице
-  console.debug(entityInfo)
+  
   // Вычисляем общее количество страниц
   const totalPages = Math.ceil(entityInfo.length / itemsPerPage);
 
@@ -95,8 +95,8 @@ export const TableFactory = ({ entityInfo, entityType, entityDeleteMethod, extra
                   <div 
                     onClick={(e) => {
                       handleSetChoosenItemId(e);
-                      //handleSetChoosenItemId(e);
                       entityDeleteMethod(row.id)
+                      window.location.reload(true);
                     }}
                     className="tableFactory__table__body__row__controlButton"
                   >

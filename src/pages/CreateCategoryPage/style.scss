@@ -1,10 +1,7 @@
-.authorizationPage {
+.createCategoryPage {
   --authorizationPageBorderRadius: 2rem;
   --authorizationPageTitleFontSize: 3rem;
   --authorizationPageTextFontSize: 2rem;
-  display: flex;
-  flex-direction: column;
-
   &__form {
     position: relative;
     margin: 5rem auto;
@@ -38,24 +35,19 @@
       border-radius: var(--authorizationPageBorderRadius);
     }
 
-    &__controls {
-      display: flex;
-      gap: 5rem;
-      &__subBtn {
-        font-size: var(--authorizationPageTextFontSize);
-        width: 60%;
-        margin: 4rem auto 0 auto;
-        padding: 2rem 0;
-        background-color: var(--colorPlatinum);
-        color: var(--colorDimGray);
-        border-radius: var(--authorizationPageBorderRadius);
-        text-decoration: none;
-        text-align: center;
-        cursor: pointer;
-  
-        &:hover {
-          background-color: var(--colorSilver);
-        }
+    &__subBtn {
+      font-size: var(--authorizationPageTextFontSize);
+      width: 60%;
+      margin: 4rem auto 0 auto;
+      padding: 2rem 0;
+      background-color: var(--colorPlatinum);
+      color: var(--colorDimGray);
+      border-radius: var(--authorizationPageBorderRadius);
+      text-decoration: none;
+      text-align: center;
+
+      &:hover {
+        background-color: var(--colorSilver);
       }
     }
   }

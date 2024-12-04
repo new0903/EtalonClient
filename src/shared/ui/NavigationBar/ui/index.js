@@ -4,7 +4,7 @@ import { StoreService } from "../../../lib/services/storeService";
 export const NavigationBar = ({ extraClasses = [], extraAttrs = [] } = {}) => {
   return (
     <div className={"navigationBar " + extraClasses.join(" ")}>
-      <a className="navigationBar__logo" href="/">
+      <a className="navigationBar__logo" href="/product">
         <img className="navigationBar__logo__link" src="" alt="Лого" />
       </a>
       <ul className="navigationBar__menuList">

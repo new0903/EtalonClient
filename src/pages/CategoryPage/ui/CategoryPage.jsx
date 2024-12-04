@@ -29,7 +29,7 @@ export const CategoryPage = ({ extraClasses = [], extraAttrs = [] } = {}) => {
         <a className="categoryPage__createCategoryBtn" href="/createCategory">Добавить категорию</a>
       </div>
       <hr />
-      {categories.length>0 ? (<TableFactory entityInfo = {categories} entityType = "category" />) :
+      {categories.length>0 ? (<TableFactory entityInfo = {categories} entityDeleteMethod = {deleteCategory} entityType = "category" />) :
       <h1>Нет категорий</h1> }
       
     </div> 

@@ -1,4 +1,3 @@
-import { NavigationBar } from "../../../shared/ui/NavigationBar/index";
 import React from "react";
 import axios from "axios";
 
@@ -15,33 +14,37 @@ export const RegisterUserPage = () => {
   const RegisterUserForm = async () => {
 
     if (password !== passwordConfirm) {
-  
+      alert("Пароли не совпадают!")
       return;
     }
 
     try {
-      const resRegistration=await axios.post("http://localhost:4000/api/auth/reg/",
-        {
-          email:email,
-          login:login,
-          password: password
-        }
-      )
-      console.log(resRegistration);
-      const resLogin=await axios.post("http://localhost:4000/api/auth/login",
-        {
-          email:email,
-          login:login,
-          password: password
-        }
-      )
-  
-      console.log(resLogin);
-      console.log(resLogin.data);
-      localStorage.setItem('userToken', resLogin.data.acessToken );
-      localStorage.setItem('userEmail', email );
-      localStorage.setItem('userLogin', login );
-      return navigate("/product"); 
+      if (email !== null && login !== null && password !== null && passwordConfirm !== null) {
+        const resRegistration = await axios.post("http://localhost:4000/api/auth/reg/",
+          {
+            email:email,
+            login:login,
+            password: password
+          }
+        )
+
+        const resLogin = await axios.post("http://localhost:4000/api/auth/login",
+          {
+            email:email,
+            login:login,
+            password: password
+          }
+        )
+
+        localStorage.setItem('userToken', resLogin.data.acessToken );
+        localStorage.setItem('userEmail', email );
+        localStorage.setItem('userLogin', login );
+        return navigate("/product"); 
+      }
+
+      else {
+        alert("Заполните все поля!")
+      }
     } catch (e) {
       console.error(e);
     }

@@ -34,6 +34,7 @@ export const AuthorizationPage = ({ extraClasses = [], extraAttrs = [] } = {}) =
       return navigate("/product"); 
     } catch(e) {
       console.error("Произошла ошибка при авторизации", e)
+      alert("Ошибка авторизации")
     }
     
   };
@@ -53,7 +54,7 @@ export const AuthorizationPage = ({ extraClasses = [], extraAttrs = [] } = {}) =
 
         <div className="authorizationPage__form__controls">
           <button 
-          type="button"
+            type="button"
             className="authorizationPage__form__controls__subBtn" 
             onClick={()=>{LoginUserForm()}}
           >
