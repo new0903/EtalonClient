@@ -15,7 +15,7 @@ export const AuthorizationPage = ({ extraClasses = [], extraAttrs = [] } = {}) =
   let navigate = useNavigate();
   const LoginUserForm = async () => {
     try {
-      const res = await axios.post("http://localhost:4000/api/auth/login",
+      const res = await axios.post("https://etalon-socks.ru/nest/api/auth/login",
         {
           email:email,
           login:login,

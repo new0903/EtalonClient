@@ -6,9 +6,12 @@ import {useParams} from "react-router-dom";
 import { NavigationBar } from "../../../shared/ui/NavigationBar/index";
 import React from "react";
 import { $categories } from "../../../shared/store/category";
+import { $colors } from "../../../shared/store/color";
+import { $types } from "../../../shared/store/type";
 import { useUnit } from 'effector-react';
 import { getCategoryFx } from "../../../api/category";
-
+import {getColorFx} from "../../../api/colors";
+import {getTypeFx} from "../../../api/type";
 import { putOneProduct,getOneProduct } from "../../../api/product";
 
 
@@ -26,11 +29,16 @@ export const EditProductPage = () => {
   const [minSize, setMinSize] = React.useState(null);
   const [properties, setProperties] = React.useState(null);
   const [CategoryId, setCategoryId] = React.useState(null);
+  const [ColorId, setColorId] = React.useState(null);
+  const [TypeId, setTypeId] = React.useState(null);
   const [files, setFiles] = React.useState(null);
 
 
 
   const [categories] = useUnit([$categories]);
+  const [colors] = useUnit([$colors]);
+  const [types] = useUnit([$types]);
+  //const [categories] = useUnit([$categories]);
 
 
 
@@ -47,6 +55,8 @@ export const EditProductPage = () => {
     formData.append('minSize', minSize)
     formData.append('properties', properties)
     formData.append('categoryId', CategoryId)
+    formData.append('colorId', ColorId)
+    formData.append('typeId', TypeId)
     formData.append('files', files)
 
     const res = await putOneProduct(formData)
@@ -57,6 +67,8 @@ export const EditProductPage = () => {
 
   const getCategories = async () => {
     await getCategoryFx();
+    await getColorFx();
+    await getTypeFx();
   }
   const getProduct = async () => {
     var res=await getOneProduct(id);
@@ -109,11 +121,24 @@ export const EditProductPage = () => {
         <select id="product-category" name="product-category" required onChange={(e) => setCategoryId(e.target.value)}>
           <option value="">Выберете категорию</option>
           {
-          categories.map((el) => el.id === CategoryId ?(<option selected value={el.name}>{el.name}</option>):(<option value={el.name}>{el.name}</option>))
+          categories.map((el) => el.id === CategoryId ?(<option selected value={el.id}>{el.name}</option>):(<option value={el.id}>{el.name}</option>))
             
           }
         </select>
-
+        <select id="product-color" name="product-color" required onChange={(e) => setColorId(e.target.value)}>
+          <option value="">Выберете цвет</option>
+          {
+          colors.map((el) => el.id === ColorId ?(<option selected value={el.id}>{el.name}</option>):(<option value={el.id}>{el.name}</option>))
+            
+          }
+        </select> 
+        <select id="product-type" name="product-type" required onChange={(e) => setTypeId(e.target.value)}>
+          <option value="">Выберете тип</option>
+          {
+          types.map((el) => el.id === TypeId ?(<option selected value={el.id}>{el.name}</option>):(<option value={el.id}>{el.name}</option>))
+            
+          }
+        </select>
         <input className="editProductPage__form__input" type="file" name="files" onChange={(e) => {
           let image_as_files = e.target.files[0];
 
@@ -122,7 +147,7 @@ export const EditProductPage = () => {
           //  setCounterFiles(image_as_files.length)
           console.log(image_as_files)
           }} />
-        <button className="editProductPage__form__subBtn" type="button" onClick={() => { SaveProductForm() }}>Войти</button>
+        <button className="editProductPage__form__subBtn" type="button" onClick={() => { SaveProductForm() }}>Сохранить</button>
       </form>
     </div>
   );

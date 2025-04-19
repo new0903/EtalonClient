@@ -33,3 +33,5 @@ export const putOneCategory = createEffect(async (formDataCategory) => {
     const { data } = await api.put('category/update', formDataCategory);
     return data;
 });
+
+//require("./client/EtalonMain/clientMain.js")

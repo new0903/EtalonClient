@@ -23,9 +23,9 @@ import React from "react";
 //   };
 
 export const api = axios.create({
-    baseURL: 'http://localhost:4000/api/',
+    baseURL: 'https://etalon-socks.ru/nest/api',
     headers: {
-        Authorization: localStorage.getItem('userToken'),
+        authorization: localStorage.getItem('userToken'),
         email: localStorage.getItem('userEmail'),
         login: localStorage.getItem('userLogin'),
     }

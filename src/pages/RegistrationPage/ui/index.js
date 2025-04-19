@@ -20,7 +20,7 @@ export const RegisterUserPage = () => {
 
     try {
       if (email !== null && login !== null && password !== null && passwordConfirm !== null) {
-        const resRegistration = await axios.post("http://localhost:4000/api/auth/reg/",
+        const resRegistration = await axios.post("https://etalon-socks.ru/nest/api/auth/reg/",
           {
             email:email,
             login:login,
@@ -28,7 +28,7 @@ export const RegisterUserPage = () => {
           }
         )
 
-        const resLogin = await axios.post("http://localhost:4000/api/auth/login",
+        const resLogin = await axios.post("https://etalon-socks.ru/nest/api/auth/login",
           {
             email:email,
             login:login,

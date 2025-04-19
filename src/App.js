@@ -1,4 +1,5 @@
 import './App.scss';
+
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ProductPage, CategoryPage, UserListPage, AuthorizationPage, HomePage } from "./pages/index.js";
 import { EditProductPage } from './pages/EditProductPage/ui/index.js';
